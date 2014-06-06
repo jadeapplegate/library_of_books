@@ -10,7 +10,7 @@
 <div ng-repeat="library in libraries">
 	    <!-- This is where you should put your edit form -->
 	    <!-- Use ng-show to toggle it on/off -->
-	    <li>{{library.title}} - {{library.owner}} <button ng-click="deleteLibrary()">Delete</button></li>
+	    <li>Library: {{library.title}} - Owner: {{library.owner}} <button ng-click="deleteLibrary()">Delete</button></li>
 
 
 
@@ -24,10 +24,10 @@
 	    <button>Add Book</button>
 	  </form>
 
-	  <ul ng-repeat="book in books">
+	  <ul ng-repeat="book in library.books">
 	    <!-- This is where you should put your edit form -->
 	    <!-- Use ng-show to toggle it on/off -->
-	    <li>{{book.title}}, by {{book.author}} <button ng-click="deleteBook()">Delete</button></li>
+	    <li>BookTitle: {{book.title}}, by:  {{book.author}} <button ng-click="deleteBook()">Delete</button></li>
 	  </ul>
 
 	  </section>
