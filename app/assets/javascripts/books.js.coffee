@@ -4,8 +4,10 @@
 
 LibraryApp = angular.module("LibraryApp", [])
 
-LibraryApp.controller "LibraryCtrl", ($scope)->
+LibraryApp.controller("LibraryCtrl", ["$scope", "$http", ($scope, $http)->
+
 	$scope.libraries = []
+
 	$scope.addLibrary = ->
 		$scope.libraries.push($scope.newLibrary)
 		$scope.newLibrary = {}
@@ -13,9 +15,12 @@ LibraryApp.controller "LibraryCtrl", ($scope)->
 	$scope.deleteLibrary = ->
 		$scope.libraries.splice(@$index,1)
 
+])
 
-LibraryApp.controller "BooksCtrl", ($scope) ->
+LibraryApp.controller("BooksCtrl", ["$scope", "$http", ($scope, $http) ->
+
   $scope.library.books = []
+
   $scope.addBook = ->
     $scope.library.books.push($scope.newBook) 
     $scope.newBook = {}
@@ -23,4 +28,5 @@ LibraryApp.controller "BooksCtrl", ($scope) ->
   $scope.deleteBook = ->
     $scope.library.books.splice(@$index,1)
 
+])
 
