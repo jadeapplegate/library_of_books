@@ -8,9 +8,13 @@ LibraryApp.controller("LibraryCtrl", ["$scope", "$http", ($scope, $http)->
 
 	$scope.libraries = []
 
+	$http.get("/libraries.json").success (data)->
+		$scope.libraries = data
+
 	$scope.addLibrary = ->
-		$scope.libraries.push($scope.newLibrary)
+		$http.post("/libraries.json", $scope.newLibrary).success (data)->
 		$scope.newLibrary = {}
+		$scope.libraries.push(data)
 
 	$scope.deleteLibrary = ->
 		$scope.libraries.splice(@$index,1)
