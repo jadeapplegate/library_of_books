@@ -11,7 +11,7 @@ LibraryApp.controller "BooksCtrl", ($scope) ->
     console.log ("HOW EXCITING????!!!")
     $scope.newBook = {}
 
-  # $scope.removeBook = ->
-  #   $scope.books.splice(@$index,1)
+  $scope.deleteBook = ->
+    $scope.books.splice(@$index,1)
 
 
